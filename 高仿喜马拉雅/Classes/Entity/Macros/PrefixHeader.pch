@@ -1,0 +1,40 @@
+//
+//  PrefixHeader.pch
+//  ElectronicDemo
+//
+//  Created by 甲和灯 on 2016/11/3.
+//  Copyright © 2016年 jiahedeng. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "BSSystemConfigure.h"
+#import "BSAppKey.h"
+#import "WXMacros.h"
+#import "BSSystemConfigure.h"
+#import "WXUIKitCategoryHeader.h"
+#import "MHFoundationCategoryHeaders.h"
+#import "UIViewController+Time.h"
+#import "WXNetworking.h"
+#import "Oauth.h"
+#import "Tool.h"
+//verder
+#import "MBProgressHUD.h"
+#import "SDCycleScrollView.h"
+#import "AFNetworking.h"
+#import "SDCycleScrollView.h"
+#import "SDAutoLayout.h"
+#import "MJExtension.h"
+#import "UIImageView+WebCache.h"
+#import "AFNetworking.h"
+
+static inline BOOL IsEmpty(id thing) {
+    return thing == nil || [thing isEqual:[NSNull null]] ||
+    [thing isEqual:@"null"]
+    || ([thing respondsToSelector:@selector(length)]
+        && [(NSData *)thing length] == 0)
+    || ([thing respondsToSelector:@selector(count)]
+        && [(NSArray *)thing count] == 0);
+}
+#endif /* PrefixHeader_pch */
