@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		358A081820D10C9E00AEAA74 /* WXUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 358A081720D10C9E00AEAA74 /* WXUtils.m */; };
 		35A1F38920C927C90069F192 /* WXLiveShowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A1F38820C927C90069F192 /* WXLiveShowController.m */; };
 		35A1F38E20C928690069F192 /* WXLiveShowCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A1F38C20C928690069F192 /* WXLiveShowCollectionViewCell.m */; };
 		35A1F38F20C928690069F192 /* WXLiveShowCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35A1F38D20C928690069F192 /* WXLiveShowCollectionViewCell.xib */; };
@@ -151,6 +152,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		358A081620D10C9D00AEAA74 /* WXUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXUtils.h; sourceTree = "<group>"; };
+		358A081720D10C9E00AEAA74 /* WXUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXUtils.m; sourceTree = "<group>"; };
 		35A1F38720C927C90069F192 /* WXLiveShowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXLiveShowController.h; sourceTree = "<group>"; };
 		35A1F38820C927C90069F192 /* WXLiveShowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXLiveShowController.m; sourceTree = "<group>"; };
 		35A1F38B20C928690069F192 /* WXLiveShowCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXLiveShowCollectionViewCell.h; sourceTree = "<group>"; };
@@ -830,6 +833,8 @@
 			children = (
 				A25BD2F01EF12787004B470F /* Tool.h */,
 				A25BD2F11EF12787004B470F /* Tool.m */,
+				358A081620D10C9D00AEAA74 /* WXUtils.h */,
+				358A081720D10C9E00AEAA74 /* WXUtils.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1492,6 +1497,7 @@
 				A2FB887D1DEC0C6C00086C5E /* DLLRUCache.m in Sources */,
 				A28671361EEFE5D8001FF13F /* WXAlbumDetailsModel.m in Sources */,
 				A2AA5D631DE7CDC000AD534B /* NSString+Date.m in Sources */,
+				358A081820D10C9E00AEAA74 /* WXUtils.m in Sources */,
 				A2AA5D791DE7CDC000AD534B /* UIImage+FileName.m in Sources */,
 				A2AA5D6E1DE7CDC000AD534B /* NSTimer+Blocks.m in Sources */,
 				A2AA5D831DE7CDC000AD534B /* UIImage+Util.m in Sources */,

@@ -53,7 +53,9 @@
     HWTabBar *tabBar = [[HWTabBar alloc] init];
     tabBar.delegate = self;
     [self setValue:tabBar forKeyPath:@"tabBar"];
-    
+    [self.tabBar setBackgroundImage:[UIImage createImageWithColor:UIColorFromRGB(0xFBFBFB)]];
+    //self.tabBar.shadowImage = [[UIImage alloc] init];
+    [self.tabBar setShadowImage:[UIImage imageWithColor:UIColorFromRGB(0xEDEDED) size:CGSizeMake(SCREEN_WIDTH,0.5)]];
 
 }
 
