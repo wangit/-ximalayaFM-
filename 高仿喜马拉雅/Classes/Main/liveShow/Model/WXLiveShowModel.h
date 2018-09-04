@@ -87,8 +87,45 @@
 @property (nonatomic, copy)   NSString *touch_height;
 @end
 
+@interface WXList : NSObject
+@property (nonatomic, copy) NSString *room_id;
+@property (nonatomic, copy)   NSString *sort_num;
+@property (nonatomic, copy)   NSString *group_id;
+@property (nonatomic, copy)   NSString *user_id;
+@property (nonatomic, copy)   NSString *city;
+@property (nonatomic, copy)   NSString *title;
+@property (nonatomic, copy)   NSString *cate_id;
+@property (nonatomic, copy)   NSString *live_in;
+@property (nonatomic, copy)   NSString *video_type;
+@property (nonatomic, copy)   NSString *create_type;
+@property (nonatomic, copy)   NSString *room_type;
+@property (nonatomic, copy)   NSString *watch_number;
+@property (nonatomic, copy)   NSString *head_image;
+@property (nonatomic, copy)   NSString *thumb_head_image;
+@property (nonatomic, copy)   NSString *live_image;
+@property (nonatomic, copy)   NSString *isPayMode;
+@property (nonatomic, copy)   NSString *xpoint;
+@property (nonatomic, copy)   NSString *ypoint;
+
+@property (nonatomic, copy)   NSString *v_type;
+@property (nonatomic, copy)   NSString *v_icon;
+@property (nonatomic, copy)   NSString *nick_name;
+@property (nonatomic, copy)   NSString *user_level;
+@property (nonatomic, copy)   NSString *is_live_pay;
+@property (nonatomic, copy)   NSString *live_pay_type;
+@property (nonatomic, assign)   BOOL live_fee;
+@property (nonatomic, copy)   NSString *user_create_time;
+@property (nonatomic, copy)   NSString *today_create;
+@property (nonatomic, copy)   NSString *live_state;
+@property (nonatomic, copy)   NSString *is_gaming;
+@property (nonatomic, copy)   NSString *game_name;
+@end
+
+
 @interface WXLiveShowModel : NSObject
 @property (nonatomic, copy)   NSString *action;
 @property (nonatomic, copy)   NSMutableArray<WXDatum *> *data;
+@property (nonatomic, copy)   NSMutableArray<WXList *> *list;
+
 @property (nonatomic, assign) NSInteger apiCode;
 @end

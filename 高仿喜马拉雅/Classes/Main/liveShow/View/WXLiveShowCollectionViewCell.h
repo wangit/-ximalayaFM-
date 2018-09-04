@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "WXLiveShowModel.h"
 @interface WXLiveShowCollectionViewCell : UICollectionViewCell
-@property (nonatomic , strong) WXDatum *model;
+@property (nonatomic , strong) WXList *model;
 @end

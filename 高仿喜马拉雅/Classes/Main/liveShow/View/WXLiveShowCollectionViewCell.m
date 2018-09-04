@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *addressLable;
 
 @property (weak, nonatomic) IBOutlet UIImageView *sexLable;
+@property (weak, nonatomic) IBOutlet UIImageView *suoIMG;
 @end;
 
 @implementation WXLiveShowCollectionViewCell
@@ -22,11 +23,17 @@
     [super awakeFromNib];
     // Initialization code
 }
-- (void)setModel:(WXDatum *)model{
-    [self.headIMG sd_setImageWithURL:[NSURL URLWithString:model.anchor.avatar] placeholderImage:IMG(@"find_radio_default")];
-    self.nameLable.text = model.anchor.nickname;
-    self.addressLable.text = model.anchor.pwd;
+- (void)setModel:(WXList *)model{
+    //[self.headIMG sd_setImageWithURL:[NSURL URLWithString:model.live_image] placeholderImage:IMG(@"find_radio_default")];
+    self.nameLable.text = model.title;
+    self.addressLable.text = model.city;
     self.sexLable.image = IMG(@"性别女");
+    if (model.live_fee) {
+        self.suoIMG.hidden = NO;
+        
+    }else{
+        self.suoIMG.hidden = YES;
 
+    }
 }
 @end

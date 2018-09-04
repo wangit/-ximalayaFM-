@@ -10,6 +10,7 @@
 #import "WXLiveShowCollectionViewCell.h"
 #import "WXLiveShowModel.h"
 #import "WXPlayShowController.h"
+#import "WXLiveShowingModel.h"
 
 @interface WXLiveShowController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property(nonatomic,strong) UICollectionView *collectionView;
@@ -62,7 +63,7 @@
 {
     static NSString *identify = @"WXLiveShowCollectionViewCell";
     WXLiveShowCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
-    WXDatum *p = self.arrayList_row[indexPath.row];
+    WXList *p = self.arrayList_row[indexPath.row];
     cell.model = p;
     return cell;
 }
@@ -99,16 +100,31 @@
 #pragma mark  点击CollectionView触发事件
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    WXDatum *p = self.arrayList_row[indexPath.item];
-    NSLog(@"---------------------%@",p.anchor.push_video_add);
-    NSLog(@"---------------------%@",p.anchor.push_video_add2);
-    NSLog(@"---------------------%@",p.anchor.video_address_suffix);
+//    WXDatum *p = self.arrayList_row[indexPath.item];
+//    NSLog(@"---------------------%@",p.anchor.push_video_add);
+//    NSLog(@"---------------------%@",p.anchor.push_video_add2);
+//    NSLog(@"---------------------%@",p.anchor.video_address_suffix);
+//
+//    WXPlayShowController *vc = [[WXPlayShowController alloc]init];
+//    vc.urlNst = [NSString stringWithFormat:@"%@",p.download_video_add];
+//
+//    [self.navigationController pushViewController:vc animated:YES];
+    
+    WXList *p = self.arrayList_row[indexPath.row];
 
-    WXPlayShowController *vc = [[WXPlayShowController alloc]init];
-    vc.urlNst = [NSString stringWithFormat:@"%@",p.download_video_add];
-    
-    [self.navigationController pushViewController:vc animated:YES];
-    
+    [self configureDidSelectNetWorkSubscription:p.room_id CallBack:^(WXLiveShowingModel* responseObject) {
+        NSLog(@"%@",responseObject.play_url);
+            WXPlayShowController *vc = [[WXPlayShowController alloc]init];
+        if (responseObject.play_url.length < 10) {
+            vc.urlNst = [NSString stringWithFormat:@"%@",responseObject.preview_play_url];
+
+        }else{
+            vc.urlNst = [NSString stringWithFormat:@"%@",responseObject.play_url];
+
+        }
+            [self.navigationController pushViewController:vc animated:YES];
+        
+    }];
 }
 
 #pragma mark  设置CollectionViewCell是否可以被点击
@@ -138,10 +154,10 @@
     NetWork.requestSerializer = [AFJSONRequestSerializer serializer];
     NetWork.responseSerializer = [AFJSONResponseSerializer serializer];
     NetWork.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", @"text/plain",nil];
-    [NetWork GET:@"http://api.14gd.cn/v2/live/list/new" parameters:diction progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [NetWork GET:@"http://www.asrv001.com/mapi/index.php" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         WXLiveShowModel *model = [WXLiveShowModel mj_objectWithKeyValues:responseObject];
-        self.arrayList_row = model.data;
+        self.arrayList_row = model.list;
         
         [self.collectionView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -150,6 +166,49 @@
     }];
     
 }
+
+
+-(void)configureDidSelectNetWorkSubscription:(NSString *)room_id
+    CallBack: (void (^)(id responseObject))callBack{
+    
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",nil];
+
+    //2.设置参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+
+    params[@"act"] = @"get_video2";
+    params[@"ctl"] = @"video";
+    params[@"is_vod"] = @"0";
+    params[@"room_id"] = room_id;//40575
+    params[@"sdk_type"] = @"ios";
+    params[@"sdk_version"] = @"2018081618";
+    params[@"sdk_version_name"] = @"2.5.0";
+    params[@"sign"] = @"55311eba44a4be46393a49cecb61ea70";
+    params[@"xpoint"] = @"116.414119";
+    params[@"ypoint"] = @"39.951616";
+    
+    [manager.requestSerializer setValue:[NSString stringWithFormat:@"PHPSESSID2=m6vadoj2cgf6le9ubev5jk21a2;client_ip=60.10.114.133;nick_name:178528;user_id=178528;user_pwd=9c73b488299fc67e51cce5d631fdf1e5;PHPSESSID=m6vadoj2cgf6le9ubev5jk21a2"] forHTTPHeaderField:@"Cookie"];
+    
+//    NSString *sessionString = @"session_1_2";
+//    [manager.requestSerializer setValue:sessionString forHTTPHeaderField:@"Cookie"];
+
+    
+    
+    //nick_name    178528user_pwd    9c73b488299fc67e51cce5d631fdf1e5     m6vadoj2cgf6le9ubev5jk21a2
+//http://www.asrv001.com/mapi/index.php
+    [manager POST:@"http://www.asrv001.com/mapi/index.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+        WXLiveShowingModel *model = [WXLiveShowingModel mj_objectWithKeyValues:responseObject];
+        callBack(model);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"失败-------%@",error);
+
+    }];
+
+}
+
 
 
 @end

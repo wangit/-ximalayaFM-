@@ -68,10 +68,19 @@
                             <constraint firstAttribute="width" constant="66" id="ur5-6R-LDw"/>
                         </constraints>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="锁" translatesAutoresizingMaskIntoConstraints="NO" id="F06-OU-FWp">
+                        <rect key="frame" x="67.5" y="67.5" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="jp1-2j-epl"/>
+                            <constraint firstAttribute="width" constant="45" id="tMq-Kw-g5T"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="F06-OU-FWp" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="0NK-2z-goL"/>
                 <constraint firstItem="Ehw-GM-wQD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="3ZW-uu-hLP"/>
+                <constraint firstItem="F06-OU-FWp" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="LNT-D9-9P6"/>
                 <constraint firstItem="gNV-EW-17a" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="18" id="Nea-5U-3u3"/>
                 <constraint firstAttribute="trailing" secondItem="MLr-ft-jfw" secondAttribute="trailing" id="Oth-RB-jhh"/>
                 <constraint firstItem="Ehw-GM-wQD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="R0H-ck-1xe"/>
@@ -88,8 +97,12 @@
                 <outlet property="nameLable" destination="YH6-Cn-wfw" id="MiK-WQ-EaZ"/>
                 <outlet property="sexLable" destination="oMs-9n-3oa" id="TbI-ii-SLX"/>
                 <outlet property="stateIMG" destination="gNV-EW-17a" id="VWv-nR-Uks"/>
+                <outlet property="suoIMG" destination="F06-OU-FWp" id="feq-Ak-efn"/>
             </connections>
             <point key="canvasLocation" x="90" y="117"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="锁" width="24" height="24"/>
+    </resources>
 </document>

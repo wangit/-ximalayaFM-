@@ -8,7 +8,9 @@
 
 #import "WXLiveShowModel.h"
 
+@implementation WXList
 
+@end
 @implementation WXSwitchs
 
 @end
@@ -39,7 +41,9 @@
 @implementation WXLiveShowModel
 + (NSDictionary *)objectClassInArray{
     return @{
-             @"data" : @"WXDatum"
+             @"data" : @"WXDatum",
+             @"list" : @"WXList"
+
              };
 }
 @end

@@ -15,6 +15,7 @@
 		35A1F38F20C928690069F192 /* WXLiveShowCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35A1F38D20C928690069F192 /* WXLiveShowCollectionViewCell.xib */; };
 		35A1F39320C92AE40069F192 /* WXLiveShowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A1F39220C92AE40069F192 /* WXLiveShowModel.m */; };
 		35A1F39620C932200069F192 /* WXPlayShowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A1F39520C932200069F192 /* WXPlayShowController.m */; };
+		35F50CD9213D33880047C328 /* WXLiveShowingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F50CD8213D33880047C328 /* WXLiveShowingModel.m */; };
 		5F04F205A084586C53A9C7CB /* libPods-高仿喜马拉雅.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B00461A3EB5920349DE2343F /* libPods-高仿喜马拉雅.a */; };
 		A21EFD1D1EEBABBC00FD01FF /* WXRecommendYouLikeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A21EFD1C1EEBABBC00FD01FF /* WXRecommendYouLikeModel.m */; };
 		A23F93D61EEE44FA00700209 /* WXDiscoverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A23F93D51EEE44FA00700209 /* WXDiscoverModel.m */; };
@@ -169,6 +170,8 @@
 		35A1F39220C92AE40069F192 /* WXLiveShowModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXLiveShowModel.m; sourceTree = "<group>"; };
 		35A1F39420C932200069F192 /* WXPlayShowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXPlayShowController.h; sourceTree = "<group>"; };
 		35A1F39520C932200069F192 /* WXPlayShowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXPlayShowController.m; sourceTree = "<group>"; };
+		35F50CD7213D33880047C328 /* WXLiveShowingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXLiveShowingModel.h; sourceTree = "<group>"; };
+		35F50CD8213D33880047C328 /* WXLiveShowingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXLiveShowingModel.m; sourceTree = "<group>"; };
 		92B297DC9E7278A415C44D36 /* Pods-高仿喜马拉雅.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-高仿喜马拉雅.release.xcconfig"; path = "Pods/Target Support Files/Pods-高仿喜马拉雅/Pods-高仿喜马拉雅.release.xcconfig"; sourceTree = "<group>"; };
 		A21EFD1B1EEBABBC00FD01FF /* WXRecommendYouLikeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXRecommendYouLikeModel.h; sourceTree = "<group>"; };
 		A21EFD1C1EEBABBC00FD01FF /* WXRecommendYouLikeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXRecommendYouLikeModel.m; sourceTree = "<group>"; };
@@ -473,6 +476,8 @@
 			children = (
 				35A1F39120C92AE40069F192 /* WXLiveShowModel.h */,
 				35A1F39220C92AE40069F192 /* WXLiveShowModel.m */,
+				35F50CD7213D33880047C328 /* WXLiveShowingModel.h */,
+				35F50CD8213D33880047C328 /* WXLiveShowingModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1523,6 +1528,7 @@
 				A2FB88C51DED6CFA00086C5E /* UserLoveTableViewCell.m in Sources */,
 				A2AA5D711DE7CDC000AD534B /* UIButton+DJBlock.m in Sources */,
 				A2AA5DA51DE7E76A00AD534B /* WXTabBarController.m in Sources */,
+				35F50CD9213D33880047C328 /* WXLiveShowingModel.m in Sources */,
 				A2AA5D781DE7CDC000AD534B /* UIImage+Color.m in Sources */,
 				A2AA5D561DE7CDC000AD534B /* AppDelegate.m in Sources */,
 				A2AA5D801DE7CDC000AD534B /* UIImage+Resize.m in Sources */,
