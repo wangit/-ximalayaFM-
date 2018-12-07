@@ -135,6 +135,7 @@
 		A2FB88E61DEE646000086C5E /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FB88E51DEE646000086C5E /* CMPopTipView.m */; };
 		A2FB88E91DEE729600086C5E /* RecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FB88E81DEE729600086C5E /* RecommendView.m */; };
 		A2FB88ED1DEE7D3500086C5E /* WXRecommendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FB88EC1DEE7D3500086C5E /* WXRecommendModel.m */; };
+		E3F036A121BA0AC800849692 /* WXLiveShowMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F036A021BA0AC800849692 /* WXLiveShowMainController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -399,6 +400,8 @@
 		A2FB88EC1DEE7D3500086C5E /* WXRecommendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXRecommendModel.m; sourceTree = "<group>"; };
 		B00461A3EB5920349DE2343F /* libPods-高仿喜马拉雅.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-高仿喜马拉雅.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0D47F084ECDA72F2DDA5386 /* Pods-高仿喜马拉雅.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-高仿喜马拉雅.debug.xcconfig"; path = "Pods/Target Support Files/Pods-高仿喜马拉雅/Pods-高仿喜马拉雅.debug.xcconfig"; sourceTree = "<group>"; };
+		E3F0369F21BA0AC800849692 /* WXLiveShowMainController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXLiveShowMainController.h; sourceTree = "<group>"; };
+		E3F036A021BA0AC800849692 /* WXLiveShowMainController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXLiveShowMainController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -457,6 +460,8 @@
 				35A1F38820C927C90069F192 /* WXLiveShowController.m */,
 				35A1F39420C932200069F192 /* WXPlayShowController.h */,
 				35A1F39520C932200069F192 /* WXPlayShowController.m */,
+				E3F0369F21BA0AC800849692 /* WXLiveShowMainController.h */,
+				E3F036A021BA0AC800849692 /* WXLiveShowMainController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1539,6 +1544,7 @@
 				A2FB88E61DEE646000086C5E /* CMPopTipView.m in Sources */,
 				A2FB88A61DEC257D00086C5E /* WXHotVideoViewController.m in Sources */,
 				A286712D1EEFDA23001FF13F /* WXAlbumDetailsViewController.m in Sources */,
+				E3F036A121BA0AC800849692 /* WXLiveShowMainController.m in Sources */,
 				35A1F39320C92AE40069F192 /* WXLiveShowModel.m in Sources */,
 				A2AA5D7A1DE7CDC000AD534B /* UIImage+FX.m in Sources */,
 				A2AA5DC41DE7E9BC00AD534B /* WXMineViewController.m in Sources */,

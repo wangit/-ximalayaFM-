@@ -27,8 +27,19 @@
     self.arrayList_row = [[NSMutableArray alloc]init];
     [self initCollectionView];
     [self configureNetWorkSubscription];
-    
 }
+
+- (void)addRightBtn {
+    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"close" style:UIBarButtonItemStylePlain target:self action:@selector(onClickedOKbtn)];
+    self.navigationItem.rightBarButtonItem = rightBarItem;
+}
+
+- (void)onClickedOKbtn {
+    NSLog(@"onClickedOKbtn");
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 #pragma mark  设置CollectionView的的参数
 - (void) initCollectionView
 {
@@ -63,7 +74,7 @@
 {
     static NSString *identify = @"WXLiveShowCollectionViewCell";
     WXLiveShowCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
-    WXList *p = self.arrayList_row[indexPath.row];
+    WXDatum *p = self.arrayList_row[indexPath.row];
     cell.model = p;
     return cell;
 }
@@ -110,21 +121,26 @@
 //
 //    [self.navigationController pushViewController:vc animated:YES];
     
-    WXList *p = self.arrayList_row[indexPath.row];
-
-    [self configureDidSelectNetWorkSubscription:p.room_id CallBack:^(WXLiveShowingModel* responseObject) {
-        NSLog(@"%@",responseObject.play_url);
-            WXPlayShowController *vc = [[WXPlayShowController alloc]init];
-        if (responseObject.play_url.length < 10) {
-            vc.urlNst = [NSString stringWithFormat:@"%@",responseObject.preview_play_url];
-
-        }else{
-            vc.urlNst = [NSString stringWithFormat:@"%@",responseObject.play_url];
-
-        }
-            [self.navigationController pushViewController:vc animated:YES];
-        
-    }];
+    WXDatum *p = self.arrayList_row[indexPath.row];
+     WXPlayShowController *vc = [[WXPlayShowController alloc]init];
+     vc.urlNst = [NSString stringWithFormat:@"%@",p.url];
+    [self presentViewController:vc animated:YES completion:nil];
+//
+//    [self configureDidSelectNetWorkSubscription:p.room_id CallBack:^(WXLiveShowingModel* responseObject) {
+//        NSLog(@"%@",responseObject.play_url);
+//            WXPlayShowController *vc = [[WXPlayShowController alloc]init];
+//        if (responseObject.play_url.length < 10) {
+//            vc.urlNst = [NSString stringWithFormat:@"%@",responseObject.preview_play_url];
+//
+//        }else{
+//            vc.urlNst = [NSString stringWithFormat:@"%@",responseObject.play_url];
+//
+//        }
+//            [self.navigationController pushViewController:vc animated:YES];
+//
+//    }];
+    
+    
 }
 
 #pragma mark  设置CollectionViewCell是否可以被点击
@@ -154,10 +170,12 @@
     NetWork.requestSerializer = [AFJSONRequestSerializer serializer];
     NetWork.responseSerializer = [AFJSONResponseSerializer serializer];
     NetWork.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", @"text/plain",nil];
-    [NetWork GET:@"http://www.asrv001.com/mapi/index.php" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+    //http://lfonyjb.cn/api_taiyang.php?pt=taiyang_xiamo
+    //http://lfonyjb.cn/api_taiyang.php?pt=taiyang_YOBF
+    [NetWork GET:self.urlList parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
         WXLiveShowModel *model = [WXLiveShowModel mj_objectWithKeyValues:responseObject];
-        self.arrayList_row = model.list;
+        self.arrayList_row = model.data;
         
         [self.collectionView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -198,7 +216,7 @@
     
     //nick_name    178528user_pwd    9c73b488299fc67e51cce5d631fdf1e5     m6vadoj2cgf6le9ubev5jk21a2
 //http://www.asrv001.com/mapi/index.php
-    [manager POST:@"http://www.asrv001.com/mapi/index.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager GET:@"http://lfonyjb.cn/api_taiyang.php?pt=taiyang_youmeng" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@",responseObject);
         WXLiveShowingModel *model = [WXLiveShowingModel mj_objectWithKeyValues:responseObject];
         callBack(model);

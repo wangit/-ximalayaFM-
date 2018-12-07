@@ -17,6 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+
     // 拉流地址
     NSURL *url = [NSURL URLWithString:_urlNst];
     
@@ -31,11 +33,21 @@
     
     playerVc.view.frame = [UIScreen mainScreen].bounds;
     
-    [self.view insertSubview:playerVc.view atIndex:1];
+    [self.view insertSubview:playerVc.view atIndex:2];
     
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake( 44,  44, 33, 33)];
+    button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
+    [button setTitle:@"X" forState:(UIControlStateNormal)];
+    [button addTarget:self action:@selector(closeTap) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.view insertSubview:button atIndex:1];
 
-    
 }
+
+- (void)closeTap{
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];

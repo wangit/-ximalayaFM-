@@ -13,6 +13,7 @@
 #import "WXMineViewController.h"
 #import "WXPlayViewController.h"
 #import "WXLiveShowController.h"
+#import "WXLiveShowMainController.h"
 
 #import "WXSubscriptionViewController.h"
 #import "HWTabBar.h"
@@ -99,8 +100,14 @@
 #pragma mark - HWTabBarDelegate代理方法
 - (void)tabBarDidClickPlusButton:(HWTabBar *)tabBar
 {
-    WXLiveShowController *vc = [[WXLiveShowController alloc] init];
-    WXNavigationController *control = [[WXNavigationController alloc]initWithRootViewController:vc];
-    [self presentViewController:control animated:YES completion:nil];
+//    WXLiveShowController *vc = [[WXLiveShowController alloc] init];
+//    WXNavigationController *control = [[WXNavigationController alloc]initWithRootViewController:vc];
+//    [self presentViewController:control animated:YES completion:nil];
+    
+    
+        WXLiveShowMainController *vc = [[WXLiveShowMainController alloc] init];
+        WXNavigationController *control = [[WXNavigationController alloc]initWithRootViewController:vc];
+        [self presentViewController:control animated:YES completion:nil];
+    
 }
 @end

@@ -85,6 +85,13 @@
 @property (nonatomic, copy)   NSString *isPayMode;
 @property (nonatomic, copy)   NSArray<WXYinxiang *> *yinxiang;
 @property (nonatomic, copy)   NSString *touch_height;
+
+
+@property (nonatomic, copy)   NSString *img;
+@property (nonatomic, copy)   NSString *title;
+@property (nonatomic, copy)   NSString *city;
+@property (nonatomic, copy)   NSString *url;
+
 @end
 
 @interface WXList : NSObject
@@ -119,6 +126,9 @@
 @property (nonatomic, copy)   NSString *live_state;
 @property (nonatomic, copy)   NSString *is_gaming;
 @property (nonatomic, copy)   NSString *game_name;
+
+
+
 @end
 
 
@@ -128,4 +138,8 @@
 @property (nonatomic, copy)   NSMutableArray<WXList *> *list;
 
 @property (nonatomic, assign) NSInteger apiCode;
+
+@property (nonatomic, copy)   NSString *result;
+@property (nonatomic, copy)   NSString *msg;
+
 @end

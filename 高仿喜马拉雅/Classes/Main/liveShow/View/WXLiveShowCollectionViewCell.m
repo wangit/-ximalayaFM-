@@ -23,17 +23,17 @@
     [super awakeFromNib];
     // Initialization code
 }
-- (void)setModel:(WXList *)model{
-    //[self.headIMG sd_setImageWithURL:[NSURL URLWithString:model.live_image] placeholderImage:IMG(@"find_radio_default")];
+- (void)setModel:(WXDatum *)model{
+    [self.headIMG sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:IMG(@"find_radio_default")];
     self.nameLable.text = model.title;
     self.addressLable.text = model.city;
     self.sexLable.image = IMG(@"性别女");
-    if (model.live_fee) {
+   // if (model.live_fee) {
         self.suoIMG.hidden = NO;
-        
-    }else{
-        self.suoIMG.hidden = YES;
-
-    }
+//
+//    }else{
+//        self.suoIMG.hidden = YES;
+//
+//    }
 }
 @end

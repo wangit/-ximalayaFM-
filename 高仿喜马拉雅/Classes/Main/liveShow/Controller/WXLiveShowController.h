@@ -9,5 +9,6 @@
 #import "WXViewController.h"
 
 @interface WXLiveShowController : WXViewController
+@property(nonatomic,strong) NSString  *urlList;
 
 @end
