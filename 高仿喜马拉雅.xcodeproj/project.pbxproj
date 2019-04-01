@@ -135,6 +135,7 @@
 		A2FB88E61DEE646000086C5E /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FB88E51DEE646000086C5E /* CMPopTipView.m */; };
 		A2FB88E91DEE729600086C5E /* RecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FB88E81DEE729600086C5E /* RecommendView.m */; };
 		A2FB88ED1DEE7D3500086C5E /* WXRecommendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FB88EC1DEE7D3500086C5E /* WXRecommendModel.m */; };
+		E3E8996A224E3D0E000ADF2D /* WXLiveShowVIPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E89969224E3D0E000ADF2D /* WXLiveShowVIPModel.m */; };
 		E3F036A121BA0AC800849692 /* WXLiveShowMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F036A021BA0AC800849692 /* WXLiveShowMainController.m */; };
 /* End PBXBuildFile section */
 
@@ -400,6 +401,8 @@
 		A2FB88EC1DEE7D3500086C5E /* WXRecommendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXRecommendModel.m; sourceTree = "<group>"; };
 		B00461A3EB5920349DE2343F /* libPods-高仿喜马拉雅.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-高仿喜马拉雅.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0D47F084ECDA72F2DDA5386 /* Pods-高仿喜马拉雅.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-高仿喜马拉雅.debug.xcconfig"; path = "Pods/Target Support Files/Pods-高仿喜马拉雅/Pods-高仿喜马拉雅.debug.xcconfig"; sourceTree = "<group>"; };
+		E3E89968224E3D0E000ADF2D /* WXLiveShowVIPModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXLiveShowVIPModel.h; sourceTree = "<group>"; };
+		E3E89969224E3D0E000ADF2D /* WXLiveShowVIPModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXLiveShowVIPModel.m; sourceTree = "<group>"; };
 		E3F0369F21BA0AC800849692 /* WXLiveShowMainController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXLiveShowMainController.h; sourceTree = "<group>"; };
 		E3F036A021BA0AC800849692 /* WXLiveShowMainController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXLiveShowMainController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -483,6 +486,8 @@
 				35A1F39220C92AE40069F192 /* WXLiveShowModel.m */,
 				35F50CD7213D33880047C328 /* WXLiveShowingModel.h */,
 				35F50CD8213D33880047C328 /* WXLiveShowingModel.m */,
+				E3E89968224E3D0E000ADF2D /* WXLiveShowVIPModel.h */,
+				E3E89969224E3D0E000ADF2D /* WXLiveShowVIPModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1488,6 +1493,7 @@
 				A2AA5D731DE7CDC000AD534B /* UIImage+Alpha.m in Sources */,
 				A2AA5D701DE7CDC000AD534B /* UIButton+CountDown.m in Sources */,
 				A2FB88CE1DED6DE900086C5E /* WXRecommendViewController.m in Sources */,
+				E3E8996A224E3D0E000ADF2D /* WXLiveShowVIPModel.m in Sources */,
 				A2AA5D7E1DE7CDC000AD534B /* UIImage+PDF.m in Sources */,
 				A2AA5D751DE7CDC000AD534B /* UIImage+BetterFace.m in Sources */,
 				A25BD2EE1EF11EF3004B470F /* WXAlbumTableViewCell.m in Sources */,
@@ -1724,7 +1730,7 @@
 					"-framework",
 					"\"UIKit\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jack.xilamaya;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jack.xilamaya2222;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1769,7 +1775,7 @@
 					"-framework",
 					"\"UIKit\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jack.xilamaya;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jack.xilamaya2222;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

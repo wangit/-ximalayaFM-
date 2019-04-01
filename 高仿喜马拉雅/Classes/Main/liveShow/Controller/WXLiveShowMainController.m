@@ -8,11 +8,12 @@
 
 #import "WXLiveShowMainController.h"
 #import "WXLiveShowController.h"
-
+#import "WXLiveShowVIPModel.h"
+#import "WXPlayShowController.h"
 @interface WXLiveShowMainController () <UITableViewDelegate, UITableViewDataSource>
 
 @property(nonatomic,strong)NSArray *arrayList_row;
-
+@property(nonatomic,strong)UITableView *tableView;
 @end
 
 @implementation WXLiveShowMainController
@@ -20,10 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addRightBtn];
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_HEIGHT, SCREEN_HEIGHT - 88)];
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    [self.view addSubview:tableView];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_HEIGHT, SCREEN_HEIGHT - 88)];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    [self configureNetWorkSubscription];
 }
 - (void)addRightBtn {
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"close" style:UIBarButtonItemStylePlain target:self action:@selector(onClickedOKbtn)];
@@ -51,18 +53,122 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    
-    cell.textLabel.text = [self.arrayList_row objectAtIndex:indexPath.row];
+    WXLiveShowVIPlist *model = [self.arrayList_row objectAtIndex:indexPath.row];
+    cell.textLabel.text = model.nickname;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-        WXLiveShowController *vc = [[WXLiveShowController alloc] init];
-        vc.urlList = [self.arrayList_row objectAtIndex:indexPath.row];
-        [self.navigationController pushViewController:vc animated:YES];
+//        WXLiveShowController *vc = [[WXLiveShowController alloc] init];
+//        vc.urlList = [self.arrayList_row objectAtIndex:indexPath.row];
+//        [self.navigationController pushViewController:vc animated:YES];
+    WXLiveShowVIPlist *model = [self.arrayList_row objectAtIndex:indexPath.row];
+    [self sasa:model.id];
+    
+}
+-(void)configureNetWorkSubscription{
+    
+    NSDictionary *diction = @{
+                              @"_plat":@"ios",
+                              @"_ver":@"1.5.0",
+                              @"latitude":@"0",
+                              @"longitude":@"0",
+                              @"page":@"1",
+                              @"size":@"50",
+                              @"token":@"c23c8e7db864c32abb83b96ebcf52c00",
+                      
+
+                              };
+    
+    
+    AFHTTPSessionManager *NetWork = [AFHTTPSessionManager manager];
+    NetWork.requestSerializer.timeoutInterval = 10.f;
+    NetWork.requestSerializer = [AFJSONRequestSerializer serializer];
+    NetWork.responseSerializer = [AFJSONResponseSerializer serializer];
+    NetWork.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", @"text/plain",nil];
+    
+    
+    [NetWork.requestSerializer setValue:[NSString stringWithFormat:@"synergy"] forHTTPHeaderField:@"knockknock"];
+
+            [NetWork.requestSerializer setValue:[NSString stringWithFormat:@"cola,tiger,panda"] forHTTPHeaderField:@"X-Accept-Puzzle"];
+        [NetWork.requestSerializer setValue:[NSString stringWithFormat:@"gLwREzwUPC6Vj3JrgVfEUs2l1P+j23EvAYKFqV3h3Ca9g2OcIV2lyE4bUCBBxZYVJwTwSI/KJO93H1ODmmzlNA1il4U9QgDmzuKDAZyMKJ0TVbXH26UUm9vJSQjogNR9qoC5j9flP814ZZopaicypkjr4x2J6CKB0f7BwViYKx9BJRzxYNGSLbG/wtA0AFYU"] forHTTPHeaderField:@"X-Live-Butter"];
+    
+    
+    [NetWork.requestSerializer setValue:[NSString stringWithFormat:@"Live-Audience/1.5.0 (iPhone; iOS 12.1.4; Scale/2.00)"] forHTTPHeaderField:@"User-Agent"];
+
+
+    //http://lfonyjb.cn/api_taiyang.php?pt=taiyang_YOBF
+    [NetWork GET:@"https://dynamic.nfipay.com/OpenAPI/v1/anchor/vip" parameters:diction progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        WXLiveShowVIPModel *model = [WXLiveShowVIPModel mj_objectWithKeyValues:responseObject];
+        self.arrayList_row = model.data.list;
+        [self.tableView reloadData];
+        NSLog(@"%@",responseObject);
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"失败-------%@",error);
+        
+    }];
+    
 }
 
+
+- (void)sasa:(NSString *)uid{
+//    URL    https://dynamic.nfipay.com/OpenAPI/v1/private/getPrivateLimit?_plat=ios&_ver=1.5.0&token=c23c8e7db864c32abb83b96ebcf52c00&uid=500768
+    
+    NSDictionary *diction = @{
+                              @"_plat":@"ios",
+                              @"_ver":@"1.5.0",
+                              @"uid":uid,
+                              @"token":@"c23c8e7db864c32abb83b96ebcf52c00",
+                              
+                              
+                              };
+    
+    
+    AFHTTPSessionManager *NetWork = [AFHTTPSessionManager manager];
+    NetWork.requestSerializer.timeoutInterval = 10.f;
+    NetWork.requestSerializer = [AFJSONRequestSerializer serializer];
+    NetWork.responseSerializer = [AFJSONResponseSerializer serializer];
+    NetWork.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", @"text/plain",nil];
+    
+    
+    [NetWork.requestSerializer setValue:[NSString stringWithFormat:@"synergy"] forHTTPHeaderField:@"knockknock"];
+    
+    [NetWork.requestSerializer setValue:[NSString stringWithFormat:@"cola,tiger,panda"] forHTTPHeaderField:@"X-Accept-Puzzle"];
+    [NetWork.requestSerializer setValue:[NSString stringWithFormat:@"gLwREzwUPC6Vj3JrgVfEUs2l1P+j23EvAYKFqV3h3Ca9g2OcIV2lyE4bUCBBxZYVJwTwSI/KJO93H1ODmmzlNA1il4U9QgDmzuKDAZyMKJ0TVbXH26UUm9vJSQjogNR9qoC5j9flP814ZZopaicypkjr4x2J6CKB0f7BwViYKx9BJRzxYNGSLbG/wtA0AFYU"] forHTTPHeaderField:@"X-Live-Butter"];
+    
+    
+    [NetWork.requestSerializer setValue:[NSString stringWithFormat:@"Live-Audience/1.5.0 (iPhone; iOS 12.1.4; Scale/2.00)"] forHTTPHeaderField:@"User-Agent"];
+    
+    
+    //http://lfonyjb.cn/api_taiyang.php?pt=taiyang_YOBF
+    [NetWork GET:@"https://dynamic.nfipay.com/OpenAPI/v1/private/getPrivateLimit" parameters:diction progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        WXLiveShowVIPModel *model = [WXLiveShowVIPModel mj_objectWithKeyValues:responseObject];
+//        self.arrayList_row = model.data.list;
+//        [self.tableView reloadData];
+//        NSLog(@"%@",responseObject);
+        NSLog(@"%@",responseObject[@"data"][@"stream"][@"pull_url"]);
+        
+                WXPlayShowController *vc = [[WXPlayShowController alloc] init];
+        vc.urlNst = responseObject[@"data"][@"stream"][@"pull_url"];
+                [self.navigationController pushViewController:vc animated:YES];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"失败-------%@",error);
+        
+    }];
+    
+    
+}
+-(NSArray *)arrayList_row{
+    if (_arrayList_row == nil) {
+        _arrayList_row = [[NSArray alloc]init];
+    }
+    return _arrayList_row;
+}
+
+/*
 - (NSArray *)arrayList_row{
 
     if (_arrayList_row == nil) {
@@ -170,7 +276,7 @@
                            ];
     }
     return _arrayList_row;
-}
+}*/
 /*
 #pragma mark - Navigation
 
