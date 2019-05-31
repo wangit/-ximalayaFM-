@@ -136,6 +136,11 @@
 		A2FB88E91DEE729600086C5E /* RecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FB88E81DEE729600086C5E /* RecommendView.m */; };
 		A2FB88ED1DEE7D3500086C5E /* WXRecommendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FB88EC1DEE7D3500086C5E /* WXRecommendModel.m */; };
 		E3E8996A224E3D0E000ADF2D /* WXLiveShowVIPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E89969224E3D0E000ADF2D /* WXLiveShowVIPModel.m */; };
+		E3F0302022A0DD2C003DE829 /* WX416LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F0301F22A0DD2C003DE829 /* WX416LiveViewController.m */; };
+		E3F0302322A0EF4F003DE829 /* WX416LiveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F0302222A0EF4F003DE829 /* WX416LiveModel.m */; };
+		E3F0302622A0F33D003DE829 /* WX416AnchorsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F0302522A0F33D003DE829 /* WX416AnchorsController.m */; };
+		E3F0303622A0FA61003DE829 /* WBIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F0303422A0FA61003DE829 /* WBIconView.m */; };
+		E3F0303722A0FA61003DE829 /* WBShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F0303522A0FA61003DE829 /* WBShareView.m */; };
 		E3F036A121BA0AC800849692 /* WXLiveShowMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F036A021BA0AC800849692 /* WXLiveShowMainController.m */; };
 /* End PBXBuildFile section */
 
@@ -403,6 +408,16 @@
 		C0D47F084ECDA72F2DDA5386 /* Pods-高仿喜马拉雅.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-高仿喜马拉雅.debug.xcconfig"; path = "Pods/Target Support Files/Pods-高仿喜马拉雅/Pods-高仿喜马拉雅.debug.xcconfig"; sourceTree = "<group>"; };
 		E3E89968224E3D0E000ADF2D /* WXLiveShowVIPModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXLiveShowVIPModel.h; sourceTree = "<group>"; };
 		E3E89969224E3D0E000ADF2D /* WXLiveShowVIPModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXLiveShowVIPModel.m; sourceTree = "<group>"; };
+		E3F0301E22A0DD2C003DE829 /* WX416LiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WX416LiveViewController.h; sourceTree = "<group>"; };
+		E3F0301F22A0DD2C003DE829 /* WX416LiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WX416LiveViewController.m; sourceTree = "<group>"; };
+		E3F0302122A0EF4F003DE829 /* WX416LiveModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WX416LiveModel.h; sourceTree = "<group>"; };
+		E3F0302222A0EF4F003DE829 /* WX416LiveModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WX416LiveModel.m; sourceTree = "<group>"; };
+		E3F0302422A0F33D003DE829 /* WX416AnchorsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WX416AnchorsController.h; sourceTree = "<group>"; };
+		E3F0302522A0F33D003DE829 /* WX416AnchorsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WX416AnchorsController.m; sourceTree = "<group>"; };
+		E3F0303222A0FA61003DE829 /* WBIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBIconView.h; sourceTree = "<group>"; };
+		E3F0303322A0FA61003DE829 /* WBShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBShareView.h; sourceTree = "<group>"; };
+		E3F0303422A0FA61003DE829 /* WBIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBIconView.m; sourceTree = "<group>"; };
+		E3F0303522A0FA61003DE829 /* WBShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBShareView.m; sourceTree = "<group>"; };
 		E3F0369F21BA0AC800849692 /* WXLiveShowMainController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXLiveShowMainController.h; sourceTree = "<group>"; };
 		E3F036A021BA0AC800849692 /* WXLiveShowMainController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXLiveShowMainController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -874,6 +889,9 @@
 		A2AA5D531DE7CDC000AD534B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				E3F0303122A0FA61003DE829 /* WBShareView */,
+				E3F0302722A0F943003DE829 /* missvip */,
+				E3F0301A22A0DCCE003DE829 /* 416Live */,
 				35A1F38420C925870069F192 /* liveShow */,
 				A2AA5DA81DE7E96700AD534B /* discover */,
 				A2AA5DAC1DE7E96700AD534B /* home */,
@@ -1259,6 +1277,37 @@
 			path = Recommend;
 			sourceTree = "<group>";
 		};
+		E3F0301A22A0DCCE003DE829 /* 416Live */ = {
+			isa = PBXGroup;
+			children = (
+				E3F0301E22A0DD2C003DE829 /* WX416LiveViewController.h */,
+				E3F0301F22A0DD2C003DE829 /* WX416LiveViewController.m */,
+				E3F0302422A0F33D003DE829 /* WX416AnchorsController.h */,
+				E3F0302522A0F33D003DE829 /* WX416AnchorsController.m */,
+				E3F0302122A0EF4F003DE829 /* WX416LiveModel.h */,
+				E3F0302222A0EF4F003DE829 /* WX416LiveModel.m */,
+			);
+			path = 416Live;
+			sourceTree = "<group>";
+		};
+		E3F0302722A0F943003DE829 /* missvip */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = missvip;
+			sourceTree = "<group>";
+		};
+		E3F0303122A0FA61003DE829 /* WBShareView */ = {
+			isa = PBXGroup;
+			children = (
+				E3F0303322A0FA61003DE829 /* WBShareView.h */,
+				E3F0303522A0FA61003DE829 /* WBShareView.m */,
+				E3F0303422A0FA61003DE829 /* WBIconView.m */,
+				E3F0303222A0FA61003DE829 /* WBIconView.h */,
+			);
+			path = WBShareView;
+			sourceTree = "<group>";
+		};
 		FB2DC8B160DFE1A2014A3C43 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1357,6 +1406,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1470,8 +1520,10 @@
 				A23F93E71EEE8E0A00700209 /* WXUserInfoModel.m in Sources */,
 				A2AA5DD11DE8199C00AD534B /* UIView+Extension.m in Sources */,
 				A21EFD1D1EEBABBC00FD01FF /* WXRecommendYouLikeModel.m in Sources */,
+				E3F0303622A0FA61003DE829 /* WBIconView.m in Sources */,
 				358A081E20D10ED000AEAA74 /* DeviceInfos.m in Sources */,
 				A2AA5D651DE7CDC000AD534B /* NSString+MD5.m in Sources */,
+				E3F0302022A0DD2C003DE829 /* WX416LiveViewController.m in Sources */,
 				A273240B1EEA9A0B005D7B01 /* WXRecommendIMGModel.m in Sources */,
 				A2FB88E91DEE729600086C5E /* RecommendView.m in Sources */,
 				A28671331EEFDCB3001FF13F /* UIViewController+Time.m in Sources */,
@@ -1487,6 +1539,7 @@
 				A27324081EEA8A65005D7B01 /* WXNetworking.m in Sources */,
 				A2FB88801DEC0C6C00086C5E /* DLFixedTabbarView.m in Sources */,
 				A23F93D61EEE44FA00700209 /* WXDiscoverModel.m in Sources */,
+				E3F0302622A0F33D003DE829 /* WX416AnchorsController.m in Sources */,
 				A2AA5D591DE7CDC000AD534B /* NSDate+Extension.m in Sources */,
 				A2AA5D641DE7CDC000AD534B /* NSString+IdCard.m in Sources */,
 				A2AA5D6C1DE7CDC000AD534B /* NSString+UrlEncode.m in Sources */,
@@ -1499,6 +1552,7 @@
 				A25BD2EE1EF11EF3004B470F /* WXAlbumTableViewCell.m in Sources */,
 				A2AA5D5E1DE7CDC000AD534B /* NSDate+Utilities.m in Sources */,
 				A2AA5D681DE7CDC000AD534B /* NSString+Pinyin.m in Sources */,
+				E3F0303722A0FA61003DE829 /* WBShareView.m in Sources */,
 				A2AA5D5C1DE7CDC000AD534B /* NSDate+Reporting.m in Sources */,
 				A2AA5DC11DE7E9A200AD534B /* WXPlayViewController.m in Sources */,
 				A2AA5D7C1DE7CDC000AD534B /* UIImage+Merge.m in Sources */,
@@ -1521,6 +1575,7 @@
 				A2FB887E1DEC0C6C00086C5E /* DLCustomSlideView.m in Sources */,
 				A2FB88831DEC0C6C00086C5E /* DLUtility.m in Sources */,
 				A2AA5D5D1DE7CDC000AD534B /* NSDate+TimeAgo.m in Sources */,
+				E3F0302322A0EF4F003DE829 /* WX416LiveModel.m in Sources */,
 				A2FB887D1DEC0C6C00086C5E /* DLLRUCache.m in Sources */,
 				358A081B20D10D3F00AEAA74 /* GXNetworking.m in Sources */,
 				A28671361EEFE5D8001FF13F /* WXAlbumDetailsModel.m in Sources */,

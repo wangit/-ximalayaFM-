@@ -16,8 +16,12 @@
 #import "WXLiveShowMainController.h"
 
 #import "WXSubscriptionViewController.h"
+#import "WX416LiveViewController.h"
 #import "HWTabBar.h"
-@interface WXTabBarController ()<HWTabBarDelegate>
+
+#import "WBShareView.h"
+
+@interface WXTabBarController ()<HWTabBarDelegate,WBShareViewDelegate,WBShareViewDataSource>
 
 @end
 
@@ -105,9 +109,84 @@
 //    [self presentViewController:control animated:YES completion:nil];
     
     
-        WXLiveShowMainController *vc = [[WXLiveShowMainController alloc] init];
-        WXNavigationController *control = [[WXNavigationController alloc]initWithRootViewController:vc];
-        [self presentViewController:control animated:YES completion:nil];
+//        WXLiveShowMainController *vc = [[WXLiveShowMainController alloc] init];
+//        WXNavigationController *control = [[WXNavigationController alloc]initWithRootViewController:vc];
+//        [self presentViewController:control animated:YES completion:nil];
     
+//            WX416LiveViewController *vc = [[WX416LiveViewController alloc] init];
+//            WXNavigationController *control = [[WXNavigationController alloc]initWithRootViewController:vc];
+//            [self presentViewController:control animated:YES completion:nil];
+    WBShareView *view = [[WBShareView alloc]initWithHigh:300];
+    //[self.view addSubview:view];
+    //view.lineNumber = 3;
+    view.imgUnderlySize = CGSizeMake(44, 44);
+    view.cancelCor = [UIColor whiteColor];
+    view.rowAdaption = YES;
+    view.delegate = self;
+    view.dataSource = self;
+    view.lineIconText = @[@[@"q",@"w",@"e",@"r",@"r",@"r",@"r",@"r",@"r",@"r"]];
+    view.lineIconImg = @[@[IMG(@"copy"),IMG(@"copy"),IMG(@"copy"),IMG(@"copy"),IMG(@"copy"),IMG(@"copy"),IMG(@"copy"),IMG(@"copy"),IMG(@"copy"),IMG(@"copy")]];
+    [view showInView:self.view];
+    
+}
+
+- (NSInteger)numberOfSectionsInWBShareView:(UIView *)wbShareView{
+    return 1;
+}
+- (CGFloat)wbShareView:(UIView *)wbShareViewheightForRow{
+    return 100;
+}
+- (BOOL)wbShareViewLable:(UILabel *)lable hideCaptionForRowAtIndexPath:(int)indexPath{
+    
+    if (indexPath == 0) {
+        lable.font = [UIFont systemFontOfSize:12];
+        return NO;
+    }
+    return YES;
+}
+
+- (BOOL)wbShareViewlineView:(UIView *)lineView hideCaptionForRowAtIndexPath:(int)indexPath{
+    lineView.backgroundColor = [UIColor purpleColor];
+    if (indexPath == 2) {
+        return YES;
+    }
+    
+    return NO;
+}
+- (NSString *)wbShareViewLableTitle:(UILabel *)lable titleForRowAtIndexPath:(int)indexPath{
+    return @"打开";
+}
+
+- (UIColor *)wbShareViewContentView:(UIView *)contentView colorForRowAtIndexPath:(int)indexPath{
+    return [UIColor colorWithRed:188/255.0 green:192/255.0 blue:192/255.0 alpha:0.4];
+}
+- (void)wbShareView:(UIView *)wbShareView didSelectRowAtIndexPath:(long)indexPath ColumnAtIndexPath:(long)indexColumn{
+    NSLog(@"%@--%ld--%ld",wbShareView,indexPath,indexColumn);
+    WX416LiveViewController *vc = [[WX416LiveViewController alloc] init];
+
+    if (indexColumn == 0) {
+        vc.url1 = @"http://www.221751.com/mobile/live/index";
+        vc.url2 = @"http://www.221751.com/mobile/live/anchors";
+        vc.token = @"3721318294b835a03db52c071441ad20";
+
+    }else if (indexColumn == 1){
+        
+        vc.url1 = @"http://missvip.top/mobile/live/index";
+        vc.url2 = @"http://missvip.top/mobile/live/anchors";
+        vc.token = @"3d489a026b684ab60b7888d34956c0f7";
+
+     
+    }
+    else if (indexColumn == 2){
+        
+        vc.url1 = @"http://chengzi888.top/mobile/live/index";
+        vc.url2 = @"http://chengzi888.top/mobile/live/anchors";
+        vc.token = @"45345b0289519fd60aae4e3a18fac987";
+        
+        
+    }
+    
+    WXNavigationController *control = [[WXNavigationController alloc]initWithRootViewController:vc];
+    [self presentViewController:control animated:YES completion:nil];
 }
 @end
